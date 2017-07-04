@@ -3,7 +3,8 @@ var TEMPLATE = '<h1><span id="timer-minutes">00</span>:<span id="timer-seconds">
 
 // adds HTML tag to current page
 var timerContainer = document.createElement('div')
-timerContainer.setAttribute("style", "height: 100px;")
+timerContainer.setAttribute("style", "height: 50px; width: 100px; position: fixed; top: 50px; left: 21px; font-size: 50px; z-index: 1000;")
+
 var bodyTag = document.body
 bodyTag.insertBefore(timerContainer, bodyTag.firstChild)
 timerContainer.innerHTML = TEMPLATE
@@ -19,6 +20,10 @@ function padZero(number){
 
 var timestampOnStart = getTimestampInSecs()
 
+function displayAlert(){
+    alert("Это скучная статья! Мне она надоела. Пожалуйста выберите другую.:)");
+}
+
 function displayTimer(){
   var currentTimestamp = getTimestampInSecs()
   var secsGone = currentTimestamp - timestampOnStart
@@ -29,5 +34,10 @@ function displayTimer(){
 
   document.getElementById('timer-minutes').innerHTML = padZero(minutes)
   document.getElementById('timer-seconds').innerHTML = padZero(seconds)
+
+  if (minutes == false && seconds == false) {
+      clearInterval(globalTimer);
+      setInterval(displayAlert, 30000)
+  }
 }
-setInterval(displayTimer, 300)
+var globalTimer = setInterval(displayTimer, 300)
