@@ -27,7 +27,7 @@ function padZero(number){
 var timestampOnStart = getTimestampInSecs()
 
 function displayAlert(){
-    alert("Это скучная статья! Мне она надоела. Пожалуйста выберите другую.:)")
+    alert("Заканчивай уже с этой статьёй! Время кодинга!")
     setTimeout(displayAlert, 30000);
 }
 
