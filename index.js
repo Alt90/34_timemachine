@@ -3,7 +3,13 @@ var TEMPLATE = '<h1><span id="timer-minutes">00</span>:<span id="timer-seconds">
 
 // adds HTML tag to current page
 var timerContainer = document.createElement('div')
-timerContainer.setAttribute("style", "height: 50px; width: 100px; position: fixed; top: 50px; left: 21px; font-size: 50px; z-index: 1000;")
+timerContainer.setAttribute("style", "height: 50px;\
+                                      width: 100px;\
+                                      position: fixed;\
+                                      top: 50px;\
+                                      left: 21px;\
+                                      font-size: 50px;\
+                                      z-index: 1000;")
 
 var bodyTag = document.body
 bodyTag.insertBefore(timerContainer, bodyTag.firstChild)
