@@ -1,4 +1,4 @@
-var TIMEOUT_IN_SECS = 5 * 60
+var TIMEOUT_IN_SECS = 3 * 60
 var TEMPLATE = '<h1><span id="timer-minutes">00</span>:<span id="timer-seconds">00</span></h1>'
 
 // adds HTML tag to current page
@@ -27,7 +27,8 @@ function padZero(number){
 var timestampOnStart = getTimestampInSecs()
 
 function displayAlert(){
-    alert("Это скучная статья! Мне она надоела. Пожалуйста выберите другую.:)");
+    alert("Это скучная статья! Мне она надоела. Пожалуйста выберите другую.:)")
+    setTimeout(displayAlert, 30000);
 }
 
 function displayTimer(){
@@ -40,10 +41,6 @@ function displayTimer(){
 
   document.getElementById('timer-minutes').innerHTML = padZero(minutes)
   document.getElementById('timer-seconds').innerHTML = padZero(seconds)
-
-  if (minutes == false && seconds == false) {
-      clearInterval(globalTimer);
-      setInterval(displayAlert, 30000)
-  }
 }
-var globalTimer = setInterval(displayTimer, 300)
+setInterval(displayTimer, 300)
+setTimeout(displayAlert, TIMEOUT_IN_SECS * 1000);
